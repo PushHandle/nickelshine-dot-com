@@ -1,1 +1,1 @@
-local: php -S 127.0.0.1:8080
+local: php -S localhost:8080
