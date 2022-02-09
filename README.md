@@ -2,6 +2,8 @@
 
 This uses Github Pages to quickly deploy an index.html to the domain (on name.com)
 
+Its intended to be a single static html page to verify LLC information during application reviews.
+
 Here are a few things to know:
 
 1. CNAME record on Name.com points to pushhandle.github.io 
