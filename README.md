@@ -2,6 +2,8 @@
 
 This uses Github Pages to quickly deploy an index.html to the domain (on name.com)
 
+Helpful article: https://www.name.com/blog/using-custom-domain-github-project-pages
+
 Its intended to be a single static html page to verify LLC information during application reviews.
 
 Here are a few things to know:
