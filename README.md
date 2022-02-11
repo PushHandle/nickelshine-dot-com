@@ -6,6 +6,7 @@ Its intended to be a single static html page to verify LLC information during ap
 
 Here are a few things to know:
 
+0. Keep CNAME file in repo. Github pages injects it when initiating the custom domain.
 1. CNAME record for Domain on Name.com will not work with MX records
 2. Name.com provides apps for both Titan Email and Github
 3. Those apps inject the DNS records and work well together 
