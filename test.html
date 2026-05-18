@@ -1,34 +1,224 @@
-
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charSet="utf-8"/><title>Nickel Shine LLC</title>
-    <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1.0, user-scalable=0"/>
-    <meta name="next-head-count" content="3"/>
-  </head>
-  
-<body style="font-family: monospace; background: url('https://nickelshine.com/images/sperry.jpg') fixed no-repeat top center">
-    
-  <img src="https://nickelshine.com/images/NickelShineLLC-transparent.png" alt="Nickel Shine Logo" width="140" style="margin: 20px; margin-bottom: 200px; position: relative; float: left" />
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Curry | Nickelshine</title>
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #4a4a4a;
+            --background: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #333333;
+            --accent: #0066cc;
+        }
 
-  <div style="border-top: 1px dotted #ccc;  padding: 20px; background: white; clear: both;">
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+            margin: 0;
+            padding: 0;
+        }
 
-    <img src="https://nickelshine.com/images/nickelshine-service-partners-bw-plaid.jpg" />
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
 
-    <p>Nickel Shine LLC is a US-based entity registered in the state of California on Feb 9, 2022 and holds Business ID: 202204211088.</p>
-      <p>Its office is located in Oakland, California.</p>
-    <p>If you need to contact, please send an email to<!-- --> <a href="mailto:info@nickelshine.com">info@nickelshine.com</a>.</p>
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
 
-  <footer style="margin-top: 60px">
-    
-    <p>Copyright ©2025 <!-- -->Nickel Shine LLC.</p> 
-    <a href="https://nickelshine.com/terms.html">Terms</a> |
-    <a href="https://nickelshine.com/privacy.html">Privacy</a> |
-    <a href="https://nickelshine.com/about.html">About</a> 
-  </footer>
+        header p {
+            margin: 0.5rem 0 0 0;
+            color: #ccc;
+            font-size: 1.1rem;
+        }
 
-</div>
-  
-  </body>
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+        }
+
+        @media(min-width: 768px) {
+            .profile-section {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .profile-bio {
+            flex: 1;
+        }
+
+        .profile-bio h2 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Responsive Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Special handling for wide aspect ratios if needed */
+        .gallery-item.wide {
+            grid-column: span 1;
+        }
+        
+        @media(min-width: 900px) {
+            .gallery-item.wide {
+                grid-column: span 2;
+            }
+        }
+
+        .gallery-caption {
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid #ddd;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Nickelshine</h1>
+        <p>Founder & Presentation Gallery</p>
+    </header>
+
+    <main>
+        <section class="profile-section">
+            <img src="1776133848977.jpg" alt="Michael Curry Headshot" class="profile-img">
+            <div class="profile-bio">
+                <h2>Michael Curry</h2>
+                <p>Welcome to Nickelshine. Explore recent speaking engagements, presentations, panel sessions, and event highlights focused on modern fintech, payment architectures, and stablecoin solutions.</p>
+            </div>
+        </section>
+
+        <h2 class="section-title">Speaking Engagements & Events</h2>
+        <div class="gallery-grid">
+            
+            <div class="gallery-item">
+                <img src="images/26-0351-327.jpg" alt="Michael Curry presenting on stablecoins and payment networks">
+                <div class="gallery-caption">Presenting checkout architectures and payment networks.</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/1732586976518.jpg" alt="Michael Curry competing in the NYC Marathon">
+                <div class="gallery-caption">TCS New York City Marathon.</div>
+            </div>
+
+            <div class="gallery-item wide">
+                <img src="images/mc_stage_edit.jpg" alt="Keynote address stage view">
+                <div class="gallery-caption">Keynote Presentation.</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/26-0346-174.jpg" alt="Presentation at NYU Stern Ideas Never Sleep event">
+                <div class="gallery-caption">Pitching at NYU Stern - Ideas Never Sleep.</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/26-0346-172.jpg" alt="Michael speaking on stage at NYU Stern">
+                <div class="gallery-caption">Accepting awards on stage.</div>
+            </div>
+
+            <div class="gallery-item wide">
+                <img src="images/1774685376067.jpg" alt="MPE Conference Industry Panel Discussion">
+                <div class="gallery-caption">Industry Panel Session.</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/26-0351-323.jpg" alt="Close-up presentation addressing payment systems background">
+                <div class="gallery-caption">Discussing traditional payment network fee structures.</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/1774006186388.jpg" alt="Networking roundtable dinner with industry leaders">
+                <div class="gallery-caption">Networking roundtable dinner event.</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/PXL_20260504_213718482.jpg" alt="Berkeley SkyDeck Batch Orientation event space">
+                <div class="gallery-caption">Berkeley SkyDeck Orientation Workspace.</div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Nickelshine. All rights reserved.</p>
+    </footer>
+
+</body>
 </html>
