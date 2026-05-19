@@ -1,40 +1,240 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charSet="utf-8"/><title>Nickel Shine LLC</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-    <meta name="next-head-count" content="3"/>
+<html lang="en"><head>
+    <meta charset="utf-8"><title>Stablecoins for Main Street</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="next-head-count" content="3">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/images/site.webmanifest">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #4a4a4a;
+            --background: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #333333;
+            --accent: #0066cc;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            margin: 0.5rem 0 0 0;
+            color: #ccc;
+            font-size: 1.1rem;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: -100px auto;
+            padding: 0 20px;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+        }
+
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .profile-bio {
+            flex: 1;
+        }
+
+        .profile-bio h2 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Responsive Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Special handling for wide aspect ratios if needed */
+        .gallery-item.wide {
+            grid-column: span 1;
+        }
+        
+        @media(min-width: 900px) {
+            .gallery-item.wide {
+                grid-column: span 2;
+            }
+        }
+
+        .gallery-caption {
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid #ddd;
+            margin-top: 4rem;
+        }
+    </style>
   </head>
   
-<body style="font-family: monospace; backdrop-filter: blur(2px);">
-<img src="https://nickelshine.com/images/NickelShineLLC-transparent.png" alt="Nickel Shine Logo" width="140" style="margin: 20px; position: relative; float: left">
-<h1 style="padding: 20px; color: #333;text-align: center;margin-top: 50px;margin-bottom: 30px; text-align: left;float: left; font-weight: 100;">Stablecoins for Main Street</h1>
-<div id="shoe-bg" style="border-top: 1px dotted #ccc; padding: 20px; clear: both; height: 200px;"></div>
-<div style="border-top: 1px dotted #ccc; padding: 20px; background: white; ">
-<p>Nickel Shine LLC is a US-based MSB registered in the state of California on Feb 9, 2022 and holds Business ID: 202204211088.</p>
-<p>We provide <a href="https://www.linkedin.com/company/nickelshine/about/">Fintech Blockchain Product Research & Development Services</a>. Our office is located in Oakland, California.</p>
-<p>Working on something interesting? <a href="https://intro.co/MichaelCurry">Let's intro &rarr;</a></p>
-<footer style="margin-top: 60px">
-<p>Copyright ©2026 Nickel Shine LLC. Product Research & Development for Fintech Blockchain Services.</p>
-<a href="https://nickelshine.com/terms.html">Terms</a> | <a href="https://nickelshine.com/privacy.html">Privacy</a> | <a href="https://www.linkedin.com/company/nickelshine/about/">About</a> | <a href="mailto:info@nickelshine.com">Contact</a>
-</footer>
-</div>
-</body>
+<body style="font-family: monospace;backdrop-filter: blur(2px);">
+<div id="shoe-bg" style="border-top: 1px dotted #ccc;padding: 20px;clear: both;height: 200px;"></div>
+<main>
+        <section class="profile-section" style="border: 1px solid #e1e1e1;">
+            <img src="/images/NickelShineLLC-transparent.png" alt="Nickel Shine Logo" class="profile-img">
+            
+            <div class="profile-bio" style="text-align: center;">
+                <h2>Nickel Shine</h2>
+                <p style="margin: 0;">Stablecoins for Main Street</p>
+                <p style="margin: 0px 0 30px 0;">Michael Curry, Principal</p>
+                <a href="https://www.linkedin.com/in/curry-Michael/" target="_blank" rel="external nofollow noreferrer" class="ml-auto transition-background-color duration-200 bg-[#E8E4DF] hover:bg-[#DBD5CF] cursor-pointer rounded-full w-[32px] h-[32px] flex items-center justify-center" style="background: #162a9a;border-radius: 60px;padding: 12px 9px 7px 9px;">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="fill: white;">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.00052 0C3.10313 0 4 0.863705 4 1.9274C4 2.99034 3.10313 3.85179 2.00052 3.85179C0.89375 3.85179 0 2.99034 0 1.9274C0 0.863705 0.89375 0 2.00052 0ZM0.273438 16H3.72604V5.31265H0.273438V16Z" fill="#232322" style="fill: white;"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6 5.26512H9.0761V6.73363H9.12013C9.54783 5.88884 10.5938 5 12.1532 5C15.4001 5 16 7.22253 16 10.1122V16H12.7947V10.7797C12.7947 9.53488 12.7739 7.93265 11.128 7.93265C9.45977 7.93265 9.20528 9.29036 9.20528 10.6904V16H6V5.26512Z" fill="#232322" style="fill: white;"></path></svg></a>
+            </div>
+        </section>
+
+        <div class="gallery-grid">
+            
+            <div class="gallery-item">
+                <img src="images/26-0351-327.jpg" alt="Michael Curry presenting on stablecoins and payment networks">
+                <div class="gallery-caption">Comparing point of sale architectures</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/26-0346-174.jpg" alt="Presentation at NYU Stern Ideas Never Sleep event">
+                <div class="gallery-caption">Pitching at NYU Stern event</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/1693337479872~2.jpg" alt="Michael Curry providing Digital Asset Network training">
+                <div class="gallery-caption">Training Digital Asset flywheel</div>
+            </div>
+
+            <div class="gallery-item wide">
+                <img src="images/mc_stage_edit.jpg" alt="Keynote address stage view">
+                <div class="gallery-caption">Invited to speak as a Stablecoin expert</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/26-0346-172.jpg" alt="Michael speaking on stage at NYU Stern">
+                <div class="gallery-caption">Participating in award panel events</div>
+            </div>
+
+            <div class="gallery-item wide">
+                <img src="images/1774685376067.jpg" alt="MPE Conference Industry Panel Discussion">
+                <div class="gallery-caption">Discussing Stablecoins in Retail | MPE 2026</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/26-0351-323.jpg" alt="Close-up presentation addressing payment systems background">
+                <div class="gallery-caption">Measuring payment fees in mobile, AI</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/1774006186388.jpeg" alt="Networking roundtable dinner with industry leaders">
+                <div class="gallery-caption">Networking dinner event in Berlin</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/PXL_20260504_213718482.jpg" alt="Berkeley SkyDeck Pad-13 Orientation">
+                <div class="gallery-caption">Accepted into Berkeley SkyDeck Pad-13</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/run.jpg" alt="Running the NYC Marathon (Team for Climate)">
+                <div class="gallery-caption">Ran NYC Marathon with Team for Climate</div>
+            </div>
+
+        </div>
+    </main>
+    
+    <div style="border-top: 1px dotted #ccc;padding: 20px;clear: both;"></div>
+    
+    <footer style="margin-top: 60px;background: #fff; padding: 20px; padding-top: 50px; color: #777; text-align: left;">
+        <p>Copyright ©2026 Nickel Shine LLC. Stablecoin Services.</p>
+        <p>Nickel Shine LLC is a US-based MSB registered in California on Feb 9, 2022. Business ID: 202204211088.</p>
+        <a href="https://nickelshine.com/terms.html">Terms</a> | <a href="https://nickelshine.com/privacy.html">Privacy</a> | <a href="https://www.linkedin.com/company/nickelshine/about/">About</a> | <a href="mailto:info@nickelshine.com">Contact</a>
+    </footer>
 
   <style type="text/css">
-    h1 { font-size: 5em; }
     #shoe-bg { 
-        background: url('https://nickelshine.com/images/sperry.jpg') fixed no-repeat top center;
+        background: url('https://nickelshine.com/images/sperry.jpg') fixed no-repeat 0 -80px #fff;
     }
     
   @media (max-width: 480px) {
-
-  h1 { font-size: 3em }
   /* CSS rules to apply on devices with a screen width of 480px or less */
-  #shoe-bg {
-    background: url('https://nickelshine.com/images/sperry.jpg') fixed no-repeat center center !important;
-  }
  }
 </style>
-  
+    
+</body>
 </html>
