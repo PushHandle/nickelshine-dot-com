@@ -1,0 +1,425 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stablecoin Operations Playbook — For Merchants</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Public+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1A2B23;        /* register green-black */
+    --bill:#2E6B4F;       /* dollar green */
+    --mint:#E9F2EC;       /* light tint */
+    --paper:#FAFAF7;      /* page */
+    --tape:#F3F1EA;       /* receipt tape */
+    --gray:#6B7069;       /* secondary text */
+    --brass:#B4863C;      /* cash-register brass accent */
+    --brass-tint:#F6EEDD;
+    --rule:#D9DCD6;
+  }
+  *{box-sizing:border-box}
+  html{background:var(--paper)}
+  body{
+    margin:0; color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;
+    font-size:16px; line-height:1.65;
+  }
+  .page{max-width:820px; margin:0 auto; padding:56px 32px 96px}
+  h1,h2,h3{font-family:"Archivo",sans-serif; line-height:1.15; margin:0}
+  h1{font-size:44px; font-weight:800; letter-spacing:-0.5px}
+  h2{font-size:24px; font-weight:700; margin-top:8px}
+  h3{font-size:17px; font-weight:700; margin:24px 0 8px}
+  p{margin:12px 0}
+  .mono{font-family:"IBM Plex Mono",monospace}
+
+  /* receipt-tape section headers — the signature element */
+  .sec{
+    display:flex; align-items:baseline; gap:14px;
+    margin:56px 0 4px; padding:10px 14px;
+    background:var(--tape);
+    border-top:1px dashed var(--gray);
+    border-bottom:1px dashed var(--gray);
+  }
+  .sec .num{
+    font-family:"IBM Plex Mono",monospace; font-size:14px; font-weight:500;
+    color:var(--brass); letter-spacing:1px; white-space:nowrap;
+  }
+  .kicker{
+    font-family:"IBM Plex Mono",monospace; font-size:13px; letter-spacing:2px;
+    text-transform:uppercase; color:var(--bill); margin-bottom:14px;
+  }
+  .lede{font-size:18px; color:var(--gray); max-width:60ch}
+
+  .callout{
+    background:var(--mint); border-left:4px solid var(--bill);
+    padding:14px 18px; margin:20px 0; border-radius:0;
+  }
+  .callout.brass{background:var(--brass-tint); border-left-color:var(--brass)}
+  .callout p{margin:6px 0}
+  .callout .tag{
+    font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:1.5px;
+    text-transform:uppercase; color:var(--bill); font-weight:500;
+  }
+  .callout.brass .tag{color:var(--brass)}
+
+  ul,ol{margin:12px 0; padding-left:22px}
+  li{margin:7px 0}
+  li::marker{color:var(--bill); font-weight:700}
+
+  table{width:100%; border-collapse:collapse; margin:18px 0; font-size:15px}
+  th{
+    text-align:left; font-family:"IBM Plex Mono",monospace; font-size:12.5px;
+    letter-spacing:1px; text-transform:uppercase; color:var(--gray);
+    font-weight:500; padding:8px 10px; border-bottom:2px solid var(--ink);
+  }
+  td{padding:10px; border-bottom:1px solid var(--rule); vertical-align:top}
+  td:first-child{font-weight:700}
+
+  figure{margin:26px 0}
+  figcaption{
+    font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--gray);
+    margin-top:8px; letter-spacing:0.5px;
+  }
+  .fig-frame{border:1px solid var(--rule); background:#fff; padding:18px 12px; border-radius:6px}
+  svg{display:block; width:100%; height:auto}
+  svg text{font-family:"Public Sans",system-ui,sans-serif}
+  svg .lbl{font-size:14px; font-weight:700; fill:var(--ink)}
+  svg .sub{font-size:12px; fill:var(--gray)}
+  svg .arrlbl{font-size:12px; fill:var(--gray)}
+  svg .monolbl{font-family:"IBM Plex Mono",monospace; font-size:11.5px; fill:var(--brass); letter-spacing:1px}
+
+  .checklist{list-style:none; padding-left:0}
+  .checklist li{
+    padding:10px 12px 10px 40px; position:relative;
+    border:1px solid var(--rule); border-radius:6px; margin:8px 0; background:#fff;
+  }
+  .checklist li::before{
+    content:""; position:absolute; left:12px; top:13px;
+    width:16px; height:16px; border:2px solid var(--bill); border-radius:3px;
+  }
+
+  header.doc{
+    border-bottom:3px solid var(--ink); padding-bottom:28px;
+  }
+  .docmeta{
+    display:flex; gap:24px; flex-wrap:wrap; margin-top:18px;
+    font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--gray);
+    letter-spacing:0.5px;
+  }
+  .docmeta span b{color:var(--ink); font-weight:500}
+
+  footer{
+    margin-top:72px; padding-top:16px; border-top:1px dashed var(--gray);
+    font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--gray);
+  }
+  @media print{
+    .page{padding:24px 0}
+    .sec{break-after:avoid}
+    figure,.callout,table{break-inside:avoid}
+  }
+  @media (max-width:640px){
+    h1{font-size:32px}
+    .page{padding:32px 18px 64px}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc">
+  <div class="kicker">Merchant operations playbook</div>
+  <h1>Running your store on stablecoins,<br>keeping your books in dollars</h1>
+  <p class="lede">How to accept payments, handle refunds, and settle to your bank — with your funds in your control at every step.</p>
+  <div class="docmeta">
+    <span>VERSION <b>1.0</b></span>
+    <span>AUDIENCE <b>Owner-operators &amp; store managers</b></span>
+    <span>SCOPE <b>Point-of-sale acceptance, refunds, settlement, bookkeeping</b></span>
+  </div>
+</header>
+
+<!-- ============================ 1.0 ============================ -->
+<div class="sec"><span class="num">1.0</span><h2>The operating principle: it's your cash drawer</h2></div>
+
+<p>Everything in this playbook follows from one fact: <strong>the system is noncustodial.</strong> When a customer pays, the funds land directly in a wallet that you — and only you — control. We never hold your money, we never pool it, and we cannot move it. Our software helps you operate; it never stands between you and your funds.</p>
+
+<p>The best way to think about your stablecoin wallet is as a <strong>second cash drawer</strong>. Like your physical drawer, it takes in payments all day, it pays out refunds on the spot, and it holds a small float so the drawer never runs empty. And like your physical drawer, you periodically deposit the excess at the bank.</p>
+
+<div class="callout">
+  <p class="tag">The one-sentence model</p>
+  <p>Operate day-to-day in stablecoins for speed. Keep your <em>books</em> in dollars, always. Sweep to your <em>bank</em> when you need cash there — one button, on your schedule.</p>
+</div>
+
+<p>One piece of precision that will keep you and your accountant on the same page: a dollar-pegged stablecoin (like USDC) is <em>dollar-denominated</em> — one unit is redeemable for one dollar — but it is not legally identical to a dollar in a bank account. Your bookkeeping treats it as an asset recorded at its dollar value. In practice this changes almost nothing about your daily routine; it just means we'll use accurate language throughout this guide, and so should you.</p>
+
+<!-- ============================ 2.0 ============================ -->
+<div class="sec"><span class="num">2.0</span><h2>How money moves</h2></div>
+
+<p>Ninety percent of what this system does is simple acceptance: a customer pays from their wallet app, funds arrive in your merchant wallet within seconds, and the sale is done. The other ten percent is refunds — full-order or single-item — and those follow the same rule you already know from credit cards: <strong>the refund goes back to where the payment came from.</strong></p>
+
+<figure>
+<div class="fig-frame">
+<svg viewBox="0 0 760 300" role="img" aria-label="Payment and refund flow between customer wallet and merchant wallet">
+  <defs>
+    <marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#2E6B4F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#6B7069" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect x="60" y="56" width="220" height="62" rx="8" fill="#E9F2EC" stroke="#2E6B4F" stroke-width="1"/>
+  <text class="lbl" x="170" y="82" text-anchor="middle">Customer wallet</text>
+  <text class="sub" x="170" y="102" text-anchor="middle">Their app, their funds</text>
+
+  <rect x="480" y="56" width="220" height="62" rx="8" fill="#2E6B4F" stroke="#1A2B23" stroke-width="1"/>
+  <text class="lbl" x="590" y="82" text-anchor="middle" fill="#FFFFFF" style="fill:#fff">Merchant wallet</text>
+  <text class="sub" x="590" y="102" text-anchor="middle" style="fill:#CFE3D8">Your custody, on receipt</text>
+
+  <text class="arrlbl" x="380" y="62" text-anchor="middle">Payment — settles in seconds</text>
+  <line x1="284" y1="76" x2="474" y2="76" stroke="#2E6B4F" stroke-width="1.6" marker-end="url(#a1)"/>
+
+  <line x1="476" y1="100" x2="286" y2="100" stroke="#6B7069" stroke-width="1.4" stroke-dasharray="6 4" marker-end="url(#a2)"/>
+  <text class="arrlbl" x="380" y="122" text-anchor="middle">Refund — sent back to the originating address</text>
+
+  <path d="M590 120 L590 168 L380 168 L380 198" fill="none" stroke="#6B7069" stroke-width="1.4" marker-end="url(#a2)"/>
+  <text class="monolbl" x="600" y="152">IF CUSTOMER NO LONGER HOLDS THAT ADDRESS</text>
+
+  <rect x="270" y="202" width="220" height="62" rx="8" fill="#F6EEDD" stroke="#B4863C" stroke-width="1"/>
+  <text class="lbl" x="380" y="228" text-anchor="middle">Your refund policy</text>
+  <text class="sub" x="380" y="248" text-anchor="middle">Gift card, store credit, or decline</text>
+</svg>
+</div>
+<figcaption>FIG. 1 — Acceptance and refunds are wallet-to-wallet. No intermediary holds funds at any point.</figcaption>
+</figure>
+
+<h3>The refund rule, in credit-card terms</h3>
+<p>With cards, a customer gets their refund on the card they paid with; if they no longer have that card, you fall back to your store policy. Stablecoins work the same way:</p>
+<ul>
+  <li><strong>Customer still controls the paying wallet:</strong> send the refund to the originating address. Full or partial amounts both work — refund one item off a basket just as easily as the whole receipt.</li>
+  <li><strong>Customer no longer controls that wallet:</strong> the refund is at your discretion, per your posted policy — gift card, store credit, or no refund. Never send funds to a different address on the customer's verbal say-so; that is the stablecoin equivalent of refunding to a different person's credit card.</li>
+</ul>
+
+<!-- ============================ 3.0 ============================ -->
+<div class="sec"><span class="num">3.0</span><h2>The two-balance model: float and bank</h2></div>
+
+<p>Merchants often ask us to convert everything to dollars instantly, because the back office runs in dollars. That's understandable — but converting <em>everything</em> creates a hidden tax: when a refund comes in, you'd pay conversion costs twice (out of stablecoins into dollars, then back into stablecoins to refund). The fix is the same one you already use with physical cash: <strong>keep a small float; deposit the rest.</strong></p>
+
+<figure>
+<div class="fig-frame">
+<svg viewBox="0 0 760 320" role="img" aria-label="Incoming payments split between a refund float and bank sweeps">
+  <defs>
+    <marker id="b1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#2E6B4F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="b2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#B4863C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect x="270" y="30" width="220" height="62" rx="8" fill="#2E6B4F"/>
+  <text class="lbl" x="380" y="56" text-anchor="middle" style="fill:#fff">Merchant wallet</text>
+  <text class="sub" x="380" y="76" text-anchor="middle" style="fill:#CFE3D8">All payments land here</text>
+
+  <path d="M330 92 L330 136 L190 136 L190 172" fill="none" stroke="#2E6B4F" stroke-width="1.6" marker-end="url(#b1)"/>
+  <text class="arrlbl" x="250" y="128" text-anchor="middle">Retain float</text>
+
+  <path d="M430 92 L430 136 L570 136 L570 172" fill="none" stroke="#B4863C" stroke-width="1.6" marker-end="url(#b2)"/>
+  <text class="arrlbl" x="512" y="128" text-anchor="middle">Sweep, one button</text>
+
+  <rect x="70" y="176" width="240" height="76" rx="8" fill="#E9F2EC" stroke="#2E6B4F" stroke-width="1"/>
+  <text class="lbl" x="190" y="202" text-anchor="middle">Refund float</text>
+  <text class="sub" x="190" y="222" text-anchor="middle">Stablecoin working capital</text>
+  <text class="sub" x="190" y="238" text-anchor="middle">Covers refunds instantly, no fees</text>
+
+  <rect x="450" y="176" width="240" height="76" rx="8" fill="#F6EEDD" stroke="#B4863C" stroke-width="1"/>
+  <text class="lbl" x="570" y="202" text-anchor="middle">Bank account</text>
+  <text class="sub" x="570" y="222" text-anchor="middle">Dollars, via off-ramp</text>
+  <text class="sub" x="570" y="238" text-anchor="middle">Payroll, rent, suppliers</text>
+
+  <text class="monolbl" x="190" y="284" text-anchor="middle">LIKE THE CASH IN YOUR DRAWER</text>
+  <text class="monolbl" x="570" y="284" text-anchor="middle">LIKE YOUR NIGHTLY DEPOSIT</text>
+</svg>
+</div>
+<figcaption>FIG. 2 — One incoming stream, two destinations. The float stays in stablecoins so refunds never touch a conversion.</figcaption>
+</figure>
+
+<h3>Sizing your float</h3>
+<p>Start simple and adjust from experience:</p>
+<ul>
+  <li><strong>Starting rule of thumb:</strong> hold roughly one to two weeks of expected refunds. If refunds run about 10% of stablecoin sales, that's about 10–20% of a typical week's stablecoin volume.</li>
+  <li><strong>Top-up rule:</strong> the float refills itself — each day's incoming payments replenish it before anything is swept. You only set the target level; the sweep takes everything <em>above</em> it.</li>
+  <li><strong>Review monthly:</strong> if the float ran dry, raise the target. If it never dips below half, lower it and bank the difference.</li>
+</ul>
+
+<div class="callout brass">
+  <p class="tag">Keep the float modest</p>
+  <p>The float is working capital, not a savings account. Anything beyond what refunds realistically need belongs in your bank, where it can cover payroll and rent. A lean float also keeps your exposure to any single asset small — the same reason you don't keep a month of revenue in the register.</p>
+</div>
+
+<!-- ============================ 4.0 ============================ -->
+<div class="sec"><span class="num">4.0</span><h2>Sweeps: when to press the button</h2></div>
+
+<p>A sweep converts your stablecoin balance above the float target into dollars and sends it to your bank. It's one button, and <strong>you decide when</strong>. Here's the key point, and it's worth stating plainly because it's a common misconception:</p>
+
+<div class="callout">
+  <p class="tag">Sweeping is a cash decision, not a compliance step</p>
+  <p>You do <em>not</em> need to convert to dollars to close your books. Your books are kept in dollars whether the money sits in the bank or in your wallet — the stablecoin balance is simply recorded as an asset at its dollar value, the same way your inventory is. Sweep when you need cash in the bank; reconcile on your accounting calendar. The two are independent.</p>
+</div>
+
+<p>So what should drive sweep timing? Two things only:</p>
+<ul>
+  <li><strong>Cash needs.</strong> Payroll, rent, and suppliers are paid from your bank account. Sweep far enough ahead that the cash is there when the bills are.</li>
+  <li><strong>Balance discipline.</strong> Don't let large balances accumulate in the wallet just because sweeping is optional. A weekly sweep — or an automatic threshold like "sweep everything above float + a set buffer" — keeps balances lean without daily attention.</li>
+</ul>
+
+<figure>
+<div class="fig-frame">
+<svg viewBox="0 0 760 250" role="img" aria-label="Operating rhythm: daily operations, weekly sweep, monthly reconciliation">
+  <line x1="60" y1="60" x2="700" y2="60" stroke="#D9DCD6" stroke-width="2"/>
+  <circle cx="140" cy="60" r="7" fill="#2E6B4F"/>
+  <circle cx="380" cy="60" r="7" fill="#B4863C"/>
+  <circle cx="620" cy="60" r="7" fill="#1A2B23"/>
+
+  <text class="monolbl" x="140" y="34" text-anchor="middle">DAILY</text>
+  <text class="monolbl" x="380" y="34" text-anchor="middle">WEEKLY</text>
+  <text class="monolbl" x="620" y="34" text-anchor="middle">MONTH / QUARTER END</text>
+
+  <rect x="50" y="88" width="180" height="112" rx="8" fill="#E9F2EC" stroke="#2E6B4F" stroke-width="1"/>
+  <text class="lbl" x="140" y="114" text-anchor="middle">Operate</text>
+  <text class="sub" x="140" y="136" text-anchor="middle">Accept payments</text>
+  <text class="sub" x="140" y="154" text-anchor="middle">Issue refunds from float</text>
+  <text class="sub" x="140" y="172" text-anchor="middle">All in stablecoins</text>
+
+  <rect x="290" y="88" width="180" height="112" rx="8" fill="#F6EEDD" stroke="#B4863C" stroke-width="1"/>
+  <text class="lbl" x="380" y="114" text-anchor="middle">Sweep</text>
+  <text class="sub" x="380" y="136" text-anchor="middle">One button to bank</text>
+  <text class="sub" x="380" y="154" text-anchor="middle">Everything above float</text>
+  <text class="sub" x="380" y="172" text-anchor="middle">Or on a balance trigger</text>
+
+  <rect x="530" y="88" width="180" height="112" rx="8" fill="#FFFFFF" stroke="#1A2B23" stroke-width="1"/>
+  <text class="lbl" x="620" y="114" text-anchor="middle">Reconcile</text>
+  <text class="sub" x="620" y="136" text-anchor="middle">Match records to ledger</text>
+  <text class="sub" x="620" y="154" text-anchor="middle">Books close in dollars</text>
+  <text class="sub" x="620" y="172" text-anchor="middle">No conversion required</text>
+
+  <line x1="140" y1="67" x2="140" y2="84" stroke="#6B7069" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="380" y1="67" x2="380" y2="84" stroke="#6B7069" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="620" y1="67" x2="620" y2="84" stroke="#6B7069" stroke-width="1" stroke-dasharray="3 3"/>
+</svg>
+</div>
+<figcaption>FIG. 3 — The operating rhythm. Daily speed, weekly cash management, calendar-based bookkeeping — three independent loops.</figcaption>
+</figure>
+
+<!-- ============================ 5.0 ============================ -->
+<div class="sec"><span class="num">5.0</span><h2>The refund procedure</h2></div>
+
+<p>Refunds are executed by you (the owner-operator or an authorized manager) from your own wallet. The procedure is the same for full and partial refunds:</p>
+
+<ol>
+  <li><strong>Locate the original transaction</strong> in your dashboard — by receipt, time, or amount.</li>
+  <li><strong>Verify the request.</strong> The customer should demonstrate control of the paying wallet (for example, by showing the transaction in their own app), just as you'd ask to see the card for a card refund.</li>
+  <li><strong>Choose full or partial.</strong> For a single item off a basket, enter that item's amount.</li>
+  <li><strong>Send to the originating address.</strong> The system pre-fills it from the original transaction — never type an address by hand.</li>
+  <li><strong>Record it.</strong> Note the refund against the original sale so your ledger nets correctly.</li>
+</ol>
+
+<figure>
+<div class="fig-frame">
+<svg viewBox="0 0 760 330" role="img" aria-label="Refund decision tree">
+  <defs>
+    <marker id="c1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#6B7069" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect x="270" y="24" width="220" height="52" rx="8" fill="#FFFFFF" stroke="#1A2B23" stroke-width="1"/>
+  <text class="lbl" x="380" y="54" text-anchor="middle">Customer requests refund</text>
+
+  <line x1="380" y1="76" x2="380" y2="112" stroke="#6B7069" stroke-width="1.4" marker-end="url(#c1)"/>
+
+  <rect x="250" y="116" width="260" height="52" rx="26" fill="#F3F1EA" stroke="#6B7069" stroke-width="1"/>
+  <text class="lbl" x="380" y="146" text-anchor="middle">Still controls the paying wallet?</text>
+
+  <path d="M250 142 L190 142 L190 216" fill="none" stroke="#6B7069" stroke-width="1.4" marker-end="url(#c1)"/>
+  <text class="monolbl" x="176" y="188" text-anchor="end">YES</text>
+
+  <path d="M510 142 L570 142 L570 216" fill="none" stroke="#6B7069" stroke-width="1.4" marker-end="url(#c1)"/>
+  <text class="monolbl" x="584" y="188">NO</text>
+
+  <rect x="70" y="220" width="240" height="76" rx="8" fill="#E9F2EC" stroke="#2E6B4F" stroke-width="1"/>
+  <text class="lbl" x="190" y="248" text-anchor="middle">Refund to origin address</text>
+  <text class="sub" x="190" y="268" text-anchor="middle">Full or partial, from your float</text>
+  <text class="sub" x="190" y="284" text-anchor="middle">Address pre-filled, never typed</text>
+
+  <rect x="450" y="220" width="240" height="76" rx="8" fill="#F6EEDD" stroke="#B4863C" stroke-width="1"/>
+  <text class="lbl" x="570" y="248" text-anchor="middle">Apply store policy</text>
+  <text class="sub" x="570" y="268" text-anchor="middle">Gift card, store credit, or decline</text>
+  <text class="sub" x="570" y="284" text-anchor="middle">Your discretion, posted policy</text>
+</svg>
+</div>
+<figcaption>FIG. 4 — One question decides the path, exactly as with a missing credit card.</figcaption>
+</figure>
+
+<!-- ============================ 6.0 ============================ -->
+<div class="sec"><span class="num">6.0</span><h2>Bookkeeping and records</h2></div>
+
+<p>Your books stay in dollars, period. What changes is only that you have one more asset account to track. Record, per transaction:</p>
+
+<table>
+  <tr><th>Event</th><th>What to record</th><th>Where it lands</th></tr>
+  <tr>
+    <td>Sale</td>
+    <td>Date, receipt #, dollar amount, transaction reference</td>
+    <td>Revenue; stablecoin asset increases</td>
+  </tr>
+  <tr>
+    <td>Refund</td>
+    <td>Original receipt #, amount, destination (origin address or gift card)</td>
+    <td>Revenue reversal; stablecoin asset decreases</td>
+  </tr>
+  <tr>
+    <td>Sweep</td>
+    <td>Amount converted, actual dollars received, fee, date</td>
+    <td>Stablecoin asset decreases; bank cash increases</td>
+  </tr>
+</table>
+
+<h3>Month-end close checklist</h3>
+<ul class="checklist">
+  <li>Export the month's transactions from your dashboard.</li>
+  <li>Match every refund to its original sale.</li>
+  <li>Confirm wallet balance = float target ± expected variance.</li>
+  <li>Record each sweep at the actual dollars received (fees and any tiny price variance show up here).</li>
+  <li>Hand the export to your bookkeeper — no conversion needed to close.</li>
+</ul>
+
+<div class="callout brass">
+  <p class="tag">Two notes for your accountant</p>
+  <p><strong>Classification:</strong> under U.S. GAAP, dollar-pegged stablecoins are generally recorded as an asset at their dollar value — not as cash or a cash equivalent. Your accountant will pick the right account; the balances are identical either way.</p>
+  <p><strong>Conversions:</strong> each sweep is technically a disposal of the asset for tax purposes. On a dollar-pegged stablecoin the gain or loss rounds to zero, but it may still be reportable. This is a bookkeeping line item, not a burden — flag it once and your accountant will handle it routinely. This playbook is operational guidance, not tax or accounting advice.</p>
+</div>
+
+<!-- ============================ 7.0 ============================ -->
+<div class="sec"><span class="num">7.0</span><h2>Quick reference</h2></div>
+
+<table>
+  <tr><th>Question</th><th>Answer</th></tr>
+  <tr><td>Who holds the money?</td><td>You do, at all times. The system is noncustodial.</td></tr>
+  <tr><td>Where do refunds come from?</td><td>Your refund float — instantly, with no conversion.</td></tr>
+  <tr><td>Where does a refund go?</td><td>The originating address only. Otherwise, your store policy applies.</td></tr>
+  <tr><td>Do I need to convert to close my books?</td><td>No. Books close in dollars regardless. Sweep when you need cash.</td></tr>
+  <tr><td>How big should the float be?</td><td>Start at 1–2 weeks of expected refunds; review monthly.</td></tr>
+  <tr><td>How often should I sweep?</td><td>Weekly, or automatically above a balance threshold. Driven by cash needs, not the calendar close.</td></tr>
+  <tr><td>Can I refund a single item off a basket?</td><td>Yes — partial refunds work the same way as full ones.</td></tr>
+</table>
+
+<footer>
+  END OF PLAYBOOK · v1.0 · Operational guidance only — not legal, tax, or accounting advice. Confirm treatment with your own advisors.
+</footer>
+
+</div>
+</body>
+</html>
