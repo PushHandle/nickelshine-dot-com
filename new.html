@@ -93,7 +93,7 @@ footer .w{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <div class="grid">
 <div class="card"><span class="tag">Patent-pending</span><h3>Spendcodes</h3><p>An open mobile acceptance system for tokenized deposits and stablecoins. Instant settlement and asset movement across native iOS and Android via NFC and QR codes.</p></div>
 <div class="card"><span class="tag">API</span><h3>Stablecoin Swap API</h3><p>Exchange stablecoins across networks at par value and deliver the desired token and network pair to the destination, routed via Coinbase Institutional.</p></div>
-<div class="card"><span class="tag">Custom-to-client</span><h3>Wallets & Custody</h3><p>Funding, settlement, and compliance orchestrated across leading payment and banking APIs, packaged for institutions that want to launch quickly.</p></div>
+<div class="card"><span class="tag">Custom-to-client</span><h3>Wallets &amp; Custody</h3><p>Funding, settlement, and compliance orchestrated across leading payment and banking APIs, packaged for institutions that want to launch quickly.</p></div>
 </div>
 <p class="sub" style="margin:36px 0 12px">Built on and integrated with</p>
 <div class="stack"><span>Stripe</span><span>Modern Treasury</span><span>Bridge</span><span>Circle</span><span>Cross River Bank</span><span>Coinbase Institutional</span></div>
@@ -150,13 +150,71 @@ footer .w{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </div>
 </div></section>
 
-<section><div class="w">
+<section>
+    <div class="gallery-grid" style="
+    max-width: 1028px;
+    margin: 0 auto;
+">
+            <div class="gallery-item">
+                <img src="images/26-0351-327.jpg" alt="Michael Curry presenting on stablecoins and payment networks">
+                <div class="gallery-caption">Comparing point of sale architectures</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/26-0346-174.jpg" alt="Presentation at NYU Stern Ideas Never Sleep event">
+                <div class="gallery-caption">Pitching at NYU Stern event</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/1693337479872~2.jpg" alt="Michael Curry providing Digital Asset Network training">
+                <div class="gallery-caption">Training Digital Asset flywheel</div>
+            </div>
+            <div class="gallery-item wide">
+                <img src="images/stage.jpg" alt="Keynote address stage view">
+                <div class="gallery-caption">Invited to speak as a Stablecoin expert</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/26-0346-172.jpg" alt="Michael speaking on stage at NYU Stern">
+                <div class="gallery-caption">Participating in award panel events</div>
+            </div>
+            <div class="gallery-item wide">
+                <img src="images/1774685376067.jpg" alt="MPE Conference Industry Panel Discussion">
+                <div class="gallery-caption">Discussing Stablecoins in Retail at MPE 2026</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/26-0351-323.jpg" alt="Close-up presentation addressing payment systems background">
+                <div class="gallery-caption">Measuring payment fees in mobile, AI</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/1774006186388.jpeg" alt="Networking roundtable dinner with industry leaders">
+                <div class="gallery-caption">Networking dinner event in Berlin</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/PXL_20260504_213718482.jpg" alt="Berkeley SkyDeck Pad-13 Orientation">
+                <div class="gallery-caption">Accepted into Berkeley SkyDeck Pad-13</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/run.jpg" alt="Running the NYC Marathon (Team for Climate)">
+                <div class="gallery-caption">Ran NYC Marathon with Team for Climate</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/Office-Senator-Adam-Schiff.jpg" alt="Michael Curry in Office of Senator Adam Schiff of California">
+                <div class="gallery-caption">With Office of Sen. Schiff (CA)</div>
+            </div>
+            <div class="gallery-item wide">
+                <img src="images/SWC-On-The-Hill2.jpg" alt="SWC at Capitol Hill before the Clarity Act">
+                <div class="gallery-caption">On Capitol Hill ahead of the CLARITY Act</div>
+            </div>
+        </div>
+</section><section><div class="w">
 <div class="cta-box">
 <h2>Building stablecoin payments? Let's talk.</h2>
 <p>We partner with banks, fintechs, wallets, and merchants on strategy, prototypes, and production money movement.</p>
 <a class="btn" href="mailto:michael.curry@nickelshine.com">michael.curry@nickelshine.com</a>
 </div>
 </div></section>
+
+
+
+
 </main>
 
 <footer><div class="w">
@@ -165,4 +223,81 @@ footer .w{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </div></footer>
 
 
-</body></html>
+
+<style>
+        .section-title {
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 0.5rem;
+        }
+
+        /* NEW: Responsive Video Container Styles */
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            width: 100%;
+        }
+        .video-item {
+            flex: 1 1 450px; /* Base width of 450px, will grow or shrink */
+            max-width: 100%;
+            aspect-ratio: 16 / 9; /* Maintains perfect video proportions */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .video-item iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Responsive Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .gallery-item {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-4px);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-item.wide {
+            grid-column: span 1;
+        }
+        @media(min-width: 900px) {
+            .gallery-item.wide {
+                grid-column: span 2;
+            }
+        }
+        .gallery-caption {
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid #ddd;
+            margin-top: 4rem;
+        }
+    </style></body></html>
