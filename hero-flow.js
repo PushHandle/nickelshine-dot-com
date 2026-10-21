@@ -11,7 +11,7 @@
 (() => {
   const CONFIG = {
     target: '#hero',   // selector(s) for the hero element; first match wins
-    lanes: 7,                       // number of rails (fewer on small screens)
+    lanes: 4,                       // number of rails (fewer on small screens)
     dotsPerLane: 3,
     speed: [35, 90],                // px per second, min/max
     radius: [1.8, 3],               // dot radius, min/max
