@@ -11,8 +11,8 @@
 (() => {
   const CONFIG = {
     target: '.hero, #hero, #top',   // selector(s) for the hero element; first match wins
-    top: 8,                         // px: where the rails start, measured down from the top of the hero
-    mobileTop: 0,                  // px: same, when the viewport is narrower than mobileBreakpoint
+    top: 20,                         // px: where the rails start, measured down from the top of the hero
+    mobileTop: -80,                  // px: same, when the viewport is narrower than mobileBreakpoint
     mobileBreakpoint: 640,          // px viewport width
     maxHeight: 800,                 // px; rails only fill this much from the top of the target
     curve: 0.0,                     // 0 = straight lines, 1 = full S-curves; try 0.2 for a gentle drift
