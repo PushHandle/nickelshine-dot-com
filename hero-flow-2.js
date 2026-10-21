@@ -13,10 +13,10 @@
     target: '.hero, #hero, #top',   // selector(s) for the hero element; first match wins
     maxHeight: 800,                 // px; rails only fill this much from the top of the target
     curve: 0.0,                     // 0 = straight lines, 1 = full S-curves; try 0.2 for a gentle drift
-    lanes: 4,                       // number of rails (fewer on small screens)
+    lanes: 2,                       // number of rails (fewer on small screens)
     dotsPerLane: 3,
     speed: [35, 90],                // px per second, min/max
-    radius: [1.8, 3],               // dot radius, min/max
+    radius: [1.8, 4],               // dot radius, min/max
     seed: 7,                        // change for a different layout
   };
 
