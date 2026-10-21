@@ -15,7 +15,7 @@
     dotsPerLane: 3,
     speed: [35, 90],                // px per second, min/max
     radius: [1.8, 3],               // dot radius, min/max
-    seed: 1,                        // change for a different layout
+    seed: 2,                        // change for a different layout
   };
 
   const NS = 'http://www.w3.org/2000/svg';
